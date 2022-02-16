@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "data_start": "2021-12-01",
+        "data_end": "2021-12-02",
+        "location_start": "Stacja A",
+        "location_end": "Stacja B",
+        "worker_id": 1,
+        "locomotive_id": 1
+    },
+    {
+        "id": 2,
+        "data_start": "2021-12-01",
+        "data_end": "2021-12-02",
+        "location_start": "Stacja C",
+        "location_end": "Stacja D",
+        "worker_id": 3,
+        "locomotive_id": 2
+    },
+    {
+        "id": 3,
+        "data_start": "2021-12-01",
+        "data_end": "2021-12-02",
+        "location_start": "Stacja A",
+        "location_end": "Stacja C",
+        "worker_id": 5,
+        "locomotive_id": 3
+    },
+    {
+        "id": 4,
+        "data_start": "2021-12-02",
+        "data_end": "2021-12-03",
+        "location_start": "Stacja B",
+        "location_end": "Stacja D",
+        "worker_id": 1,
+        "locomotive_id": 1
+    },
+    {
+        "id": 5,
+        "data_start": "2021-12-02",
+        "data_end": "2021-12-03",
+        "location_start": "Stacja D",
+        "location_end": "Stacja B",
+        "worker_id": 2,
+        "locomotive_id": 2
+    },
+    {
+        "id": 6,
+        "data_start": "2021-12-03",
+        "data_end": "2021-12-04",
+        "location_start": "Stacja C",
+        "location_end": "Stacja B",
+        "worker_id": 4,
+        "locomotive_id": 1
+    },
+    {
+        "id": 7,
+        "data_start": "2021-12-03",
+        "data_end": "2021-12-03",
+        "location_start": "Stacja C",
+        "location_end": "Stacja A",
+        "worker_id": 3,
+        "locomotive_id": 3
+    },
+    {
+        "id": 8,
+        "data_start": "2021-12-05",
+        "data_end": "2021-12-05",
+        "location_start": "Stacja A",
+        "location_end": "Stacja D",
+        "worker_id": 4,
+        "locomotive_id": 2
+    },
+    {
+        "id": 9,
+        "data_start": "2021-12-10",
+        "data_end": "2021-12-10",
+        "location_start": "Stacja B",
+        "location_end": "Stacja A",
+        "worker_id": 5,
+        "locomotive_id": 2
+    }
+]
