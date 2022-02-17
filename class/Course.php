@@ -1,6 +1,6 @@
 <?php
 
-class courses
+class Course
 {
     private $id;
     private $data_start;

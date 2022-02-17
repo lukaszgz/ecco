@@ -1,6 +1,6 @@
 <?php
 
-require('class/courses.php');
+require('init.php');
 
 ?>
 
@@ -17,49 +17,16 @@ require('class/courses.php');
     <title>Zadanie Ecco RAIL!</title>
   </head>
   <body>
-    <h1>Lista kursów</h1>
 
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Data start</th>
-          <th scope="col">Data end</th>
-          <th scope="col">location start</th>
-          <th scope="col">location end</th>
-          <th scope="col">worker_id</th>
-          <th scope="col">locomotive_id</th>
-        </tr>
-      </thead>
-      <tbody>
 <?php
-$data = file_get_contents("courses.txt");
-$json_a = json_decode($data, true);
 
-$c_array = array();
-
-foreach($json_a as $k => $v)
-{
-  $c_array[] = new courses($v);
-}
-
-foreach ($c_array as $key => $value) {
-  echo "<tr>";
-  echo  '<th scope="row">'.$value->getId().'</th>';
-  echo  "<td>".$value->getDataStart()."</td>";
-  echo  "<td>".$value->getDataEnd()."</td>";
-  echo  "<td>".$value->getLocationStart()."</td>";
-  echo  "<td>".$value->getLocationEnd()."</td>";
-  echo  "<td>".$value->getWorkerId()."</td>";
-  echo  "<td>".$value->getLocomotiveId()."</td>";
-  echo "</tr>";
-}
-// print_r($c_array);
+echo $row_courses_html;
+// echo $row_workers_html;
+echo $row_locomotives_html;
 
 ?>
         
-      </tbody>
-    </table>
+
 
 
 
