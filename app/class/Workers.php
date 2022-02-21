@@ -8,7 +8,7 @@ class Workers
 
     public function __construct($NameJsonFile = "workers.txt")
     {
-        if($data_workers = file_get_contents("./".$NameJsonFile))
+        if($data_workers = file_get_contents("./data/".$NameJsonFile))
         {
             $json_w = json_decode($data_workers, true);
             foreach($json_w as $k => $v)

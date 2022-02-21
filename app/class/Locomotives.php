@@ -8,7 +8,7 @@ class Locomotives
 
     public function __construct($NameJsonFile = "locomotives.txt")
     {
-        if($data_locomotives = file_get_contents("./".$NameJsonFile))
+        if($data_locomotives = file_get_contents("./data/".$NameJsonFile))
         {
             $json_l = json_decode($data_locomotives, true);
             foreach($json_l as $k => $v)

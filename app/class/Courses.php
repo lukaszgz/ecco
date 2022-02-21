@@ -8,7 +8,7 @@ class Courses
 
     public function __construct($NameJsonFile = "courses.txt")
     {
-        if($data_courses = file_get_contents("./".$NameJsonFile))
+        if($data_courses = file_get_contents("./data/".$NameJsonFile))
         {
             $json_c = json_decode($data_courses, true);
             foreach($json_c as $k => $v)
