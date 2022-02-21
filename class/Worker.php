@@ -1,18 +1,23 @@
 <?php
 
-class Worker
+require_once('iPerson.php');
+
+class Worker implements iPerson
 {
-    protected $id = 0;
-    protected $first_name = '';
-    protected $last_name = '';
-    static private $timestamp; 
+    private int $id = 0;
+    private string $first_name;
+    private string $last_name;
+    private string $name;
+    private $timestamp; 
 
     public function __construct($workersJson)
     {
         $this->id = $workersJson['id'];
+        $this->name = $workersJson['name'];
         $name_array = explode(' ',$workersJson['name']);
         $this->first_name = $name_array[0];
         $this->last_name = $name_array[1];
+
     }
 
     public function getFirstName()
@@ -23,6 +28,11 @@ class Worker
     public function getLastName()
     {
         return $this->last_name;
+    } 
+
+    public function getName()
+    {
+        return $this->name;
     } 
 
     public function getId()

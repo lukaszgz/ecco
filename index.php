@@ -1,44 +1,55 @@
 <?php
-
 require('init.php');
 
-?>
+Part::getHeader();
 
-<!doctype html>
-<html lang="pl">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+$row_courses_html = '
+<h1>Kursy</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Data wyjazdu</th>
+      <th scope="col">Data dojazdu</th>
+      <th scope="col">Wyjazd</th>
+      <th scope="col">Przyjazd</th>
+      <th scope="col">Maszynista</th>
+      <th scope="col">Lokomotywa</th>
+    </tr>
+  </thead>
+  <tbody>
+';
+$courses_array = $courses->getCourses();
+foreach ($courses_array as $key => $course) {
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  $worker = $workers->getWorkerById($course->getWorkerId());
+  $locomotive = $locomotives->getLocomotiveById($course->getLocomotiveId());
 
-    <title>Zadanie Ecco RAIL!</title>
-  </head>
-  <body>
-
-<?php
+  $row_courses_html .= "<tr>";
+  $row_courses_html .=  '<th scope="row">'.$course->getId().'</th>';
+  $row_courses_html .=  "<td>".$course->getDataStart()."</td>";
+  $row_courses_html .=  "<td>".$course->getDataEnd()."</td>";
+  $row_courses_html .=  "<td>".$course->getLocationStart()."</td>";
+  $row_courses_html .=  "<td>".$course->getLocationEnd()."</td>";   
+  $row_courses_html .=  "<td>".$worker->getName()."</td>";    
+  $row_courses_html .=  "<td>".$locomotive->getName()."</td>";
+  $row_courses_html .= "</tr>";
+}
+$row_courses_html .='</tbody></table>';
 
 echo $row_courses_html;
-// echo $row_workers_html;
-echo $row_locomotives_html;
+
 
 ?>
-        
+
+
+<div class="d-grid gap-2">
+<a href="workerslist.php" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Maszyniści</a>
+<a href="locomotiveslist.php" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Lokomotywy</a>
+</div>
 
 
 
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-  </body>
-</html>
+<?php
+Part::getFooter();
+?>

@@ -9,7 +9,6 @@ class Course
     private $location_end;
     private $worker_id;
     private $locomotive_id;
-    // private $timestamp; 
 
     public function __construct($courseJson)
     {
