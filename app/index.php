@@ -31,8 +31,8 @@ foreach ($courses_array as $key => $course) {
   $row_courses_html .=  "<td>".$course->getDataEnd()."</td>";
   $row_courses_html .=  "<td>".$course->getLocationStart()."</td>";
   $row_courses_html .=  "<td>".$course->getLocationEnd()."</td>";   
-  $row_courses_html .=  "<td>".$worker->getName()."</td>";    
-  $row_courses_html .=  "<td>".$locomotive->getName()."</td>";
+  $row_courses_html .=  '<td><a href="workerdata.php?w_id='.$worker->getId().'">'.$worker->getName().'</a></td>';   
+  $row_courses_html .=  '<td><a href="locomotivedata.php?l_id='.$locomotive->getId().'">'.$locomotive->getName().'</a></td>';
   $row_courses_html .= "</tr>";
 }
 $row_courses_html .='</tbody></table>';
