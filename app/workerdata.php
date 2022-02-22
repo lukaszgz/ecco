@@ -24,6 +24,10 @@ $html = '
 $courses_array = $courses->getCoursesByWorkerId($_GET['w_id']);
 foreach ($courses_array as $key => $course) {
   $worker = $workers->getWorkerById($course->getWorkerId());
+
+  $worker->setLastName($worker->GetLastName());
+  $_SESSION["workers"] = serialize($workers);
+
   $locomotive = $locomotives->getLocomotiveById($course->getLocomotiveId());
 
   $html .= "<tr>";
@@ -32,11 +36,12 @@ foreach ($courses_array as $key => $course) {
   $html .=  "<td>".$course->getDataEnd()."</td>";
   $html .=  "<td>".$course->getLocationStart()."</td>";
   $html .=  "<td>".$course->getLocationEnd()."</td>";   
-  $html .=  "<td>".$worker->getName()."</td>"; 
+  $html .=  '<td title="'.$worker->getTimestamp().'">'.$worker->getName().'</td>'; 
   $html .=  '<td><a href="locomotivedata.php?l_id='.$locomotive->getId().'">'.$locomotive->getName().'</a></td>';
   $html .= "</tr>";
 }
 $html .='</tbody></table>';
+
 
 $html .='
 <div class="d-grid gap-2">

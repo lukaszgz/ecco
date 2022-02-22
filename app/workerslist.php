@@ -13,6 +13,7 @@ $html = '
       <th scope="col">Imię</th>
       <th scope="col">Nazwisko</th>
       <th scope="col">Lokomotywy i kursy</th>
+      <th scope="col">Ostatnia aktualizacja pracownika</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,7 @@ foreach ($workers_array as $key => $worker) {
   $html .=  "<td>".$worker->getFirstName()."</td>";
   $html .=  "<td>".$worker->getLastName()."</td>";
   $html .=  '<td><a href="workerdata.php?w_id='.$worker->getId().'"> Sprawdź</a></td>';
+  $html .=  "<td>".$worker->getTimestamp()."</td>";
   $html .= "</tr>";
 }
 

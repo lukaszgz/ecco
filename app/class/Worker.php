@@ -17,7 +17,7 @@ class Worker implements iPerson
         $name_array = explode(' ',$workersJson['name']);
         $this->first_name = $name_array[0];
         $this->last_name = $name_array[1];
-
+        $this->updateTimestamp();
     }
 
     public function getFirstName()
@@ -40,18 +40,23 @@ class Worker implements iPerson
         return $this->id;
     } 
 
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    } 
+
     public function setId($id)
     {
         $this->id = $id;
     } 
     public function setFirstName($f_name)
     {
-        $this->first_name = $f_name;
+        $this->first_name = strval($f_name);
         $this->updateTimestamp();
     } 
     public function setLastName($l_name)
     {
-        $this->last_name = $l_name;
+        $this->last_name = strval($l_name);
         $this->updateTimestamp();
     } 
 
